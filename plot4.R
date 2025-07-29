@@ -9,6 +9,9 @@ data$Datetime <- as.POSIXct(datetime)
 data$Date <- as.Date(data$Date, format="%d/%m/%Y")
 data$Time <- strptime(data$Time, format = "%H:%M:%S")
 
+##Setting the PNG graphics
+png("plot4.png", width = 480, height = 480)
+
 ##Creating all the graphs
 par(mfrow=c(2,2), mar=c(4,4,2,1), oma=c(0,0,2,0))
 with(data, {
@@ -25,8 +28,5 @@ with(data, {
   plot(Global_reactive_power~Datetime, type="l", 
        ylab="Global Rective Power (kilowatts)",xlab="")
 })
-
-##Setting the PNG graphics
-png("plot4.png", width = 480, height = 480)
 
 dev.off()

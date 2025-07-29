@@ -9,10 +9,10 @@ data$Datetime <- as.POSIXct(datetime)
 data$Date <- as.Date(data$Date, format="%d/%m/%Y")
 data$Time <- strptime(data$Time, format = "%H:%M:%S")
 
-##Creating the plot
-plot(data$Global_active_power~data$Datetime, type = "l", ylab = "Global Active Power (kilowatts)", xlab = "")
-
 ##Setting the PNG graphics
 png("plot2.png", width = 480, height = 480)
+
+##Creating the plot
+plot(data$Global_active_power~data$Datetime, type = "l", ylab = "Global Active Power (kilowatts)", xlab = "")
 
 dev.off()

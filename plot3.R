@@ -9,6 +9,9 @@ data$Datetime <- as.POSIXct(datetime)
 data$Date <- as.Date(data$Date, format="%d/%m/%Y")
 data$Time <- strptime(data$Time, format = "%H:%M:%S")
 
+##Setting the PNG graphics
+png("plot3.png", width = 480, height = 480)
+
 with(data, {
   plot(Sub_metering_1~Datetime, type="l",
        ylab="Global Active Power (kilowatts)", xlab="")
@@ -17,8 +20,5 @@ with(data, {
 })
 legend("topright", col=c("black", "red", "blue"), lty=1, lwd=2, 
        legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"))
-
-##Setting the PNG graphics
-png("plot3.png", width = 480, height = 480)
 
 dev.off()
